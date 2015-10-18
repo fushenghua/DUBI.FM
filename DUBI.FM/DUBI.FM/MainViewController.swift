@@ -9,6 +9,7 @@
 import UIKit
 import MediaPlayer
 import Alamofire
+import AVKit
 
 
 
@@ -29,13 +30,23 @@ class MainViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var progressbar: UIProgressView!
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        loadAudio("http://mr7.doubanio.com/8d9ec4d0ac9192b12ced9b931dc7d605/0/fm/song/p184_128k.mp3");
         initshadow();
         loadData();
-        
+        initialize();
+    }
+    
+    
+    func initialize(){
+        let session=AVAudioSession.sharedInstance();
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord);
+        try! session.setActive(true);
     }
     
     func initTimer(){
@@ -132,10 +143,13 @@ class MainViewController: UIViewController {
         }
        currentTimeMinutes = Int(audioPlay.currentPlaybackTime)/60;
        currentTimeSeconds = Int(audioPlay.currentPlaybackTime)%60;
-        print("\(currentTimeMinutes):\(currentTimeSeconds)");
+        print("currentTimeMinutes:\(currentTimeMinutes):-currentTimeSeconds:\(currentTimeSeconds)");
         
        
-        self.progressbar.progress=Float(Int(audioPlay.currentPlaybackTime)/self.lengthTime!);
+        self.progressbar.progress=Float(audioPlay.currentPlaybackTime)/Float(self.lengthTime!);
+            
+            //Float(Int(audioPlay.currentPlaybackTime)/self.lengthTime!);
+        print("progressbar:\(Float(audioPlay.currentPlaybackTime)/Float(self.lengthTime!))")
     }
 
 
