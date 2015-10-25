@@ -14,7 +14,13 @@
 		BB9C769D1BC4D07700F39587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9C769B1BC4D07700F39587 /* LaunchScreen.storyboard */; };
 		BB9C770B1BC519CB00F39587 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9C77021BC519BB00F39587 /* Alamofire.framework */; };
 		BB9C770C1BC519CB00F39587 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB9C77021BC519BB00F39587 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BB9C77171BC51F3100F39587 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9C77161BC51F3100F39587 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0851BDD374C000BB9F9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C0841BDD374C000BB9F9 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0901BDD3801000BB9F9 /* MainTableViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C0871BDD3801000BB9F9 /* MainTableViewControl.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0911BDD3801000BB9F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C0881BDD3801000BB9F9 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0921BDD3801000BB9F9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C0891BDD3801000BB9F9 /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0931BDD3801000BB9F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C08C1BDD3801000BB9F9 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0941BDD3801000BB9F9 /* DUBIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9C08D1BDD3801000BB9F9 /* DUBIConfig.swift */; settings = {ASSET_TAGS = (); }; };
+		BBC9C0951BDD3801000BB9F9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBC9C08E1BDD3801000BB9F9 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +91,14 @@
 		BB9C769C1BC4D07700F39587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB9C769E1BC4D07700F39587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB9C76F91BC519BB00F39587 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Alamofire.xcodeproj; sourceTree = "<group>"; };
-		BB9C77151BC51F3100F39587 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
-		BB9C77161BC51F3100F39587 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		BBC9C0831BDD374C000BB9F9 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
+		BBC9C0841BDD374C000BB9F9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		BBC9C0871BDD3801000BB9F9 /* MainTableViewControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewControl.swift; sourceTree = "<group>"; };
+		BBC9C0881BDD3801000BB9F9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BBC9C0891BDD3801000BB9F9 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		BBC9C08C1BDD3801000BB9F9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBC9C08D1BDD3801000BB9F9 /* DUBIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DUBIConfig.swift; sourceTree = "<group>"; };
+		BBC9C08E1BDD3801000BB9F9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +133,11 @@
 		BB9C76911BC4D07700F39587 /* DUBI.FM */ = {
 			isa = PBXGroup;
 			children = (
-				BB9C77151BC51F3100F39587 /* SwiftyJSON.h */,
-				BB9C77161BC51F3100F39587 /* SwiftyJSON.swift */,
+				BBC9C0861BDD3801000BB9F9 /* Controller */,
+				BBC9C08A1BDD3801000BB9F9 /* Model */,
+				BBC9C08B1BDD3801000BB9F9 /* Other */,
+				BBC9C08F1BDD3801000BB9F9 /* View */,
+				BBC9C0821BDD374C000BB9F9 /* Libs */,
 				BB9C76921BC4D07700F39587 /* AppDelegate.swift */,
 				BB9C76941BC4D07700F39587 /* MainViewController.swift */,
 				BB9C76961BC4D07700F39587 /* Main.storyboard */,
@@ -143,6 +158,49 @@
 				BB9C770A1BC519BB00F39587 /* Alamofire OSX Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BBC9C0821BDD374C000BB9F9 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				BBC9C0831BDD374C000BB9F9 /* SwiftyJSON.h */,
+				BBC9C0841BDD374C000BB9F9 /* SwiftyJSON.swift */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		BBC9C0861BDD3801000BB9F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BBC9C0871BDD3801000BB9F9 /* MainTableViewControl.swift */,
+				BBC9C0881BDD3801000BB9F9 /* MainViewController.swift */,
+				BBC9C0891BDD3801000BB9F9 /* MenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BBC9C08A1BDD3801000BB9F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBC9C08B1BDD3801000BB9F9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				BBC9C08C1BDD3801000BB9F9 /* AppDelegate.swift */,
+				BBC9C08D1BDD3801000BB9F9 /* DUBIConfig.swift */,
+				BBC9C08E1BDD3801000BB9F9 /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		BBC9C08F1BDD3801000BB9F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC9C0951BDD3801000BB9F9 /* Info.plist in Resources */,
 				BB9C769D1BC4D07700F39587 /* LaunchScreen.storyboard in Resources */,
 				BB9C769A1BC4D07700F39587 /* Assets.xcassets in Resources */,
 				BB9C76981BC4D07700F39587 /* Main.storyboard in Resources */,
@@ -264,9 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9C77171BC51F3100F39587 /* SwiftyJSON.swift in Sources */,
 				BB9C76951BC4D07700F39587 /* MainViewController.swift in Sources */,
+				BBC9C0921BDD3801000BB9F9 /* MenuViewController.swift in Sources */,
 				BB9C76931BC4D07700F39587 /* AppDelegate.swift in Sources */,
+				BBC9C0901BDD3801000BB9F9 /* MainTableViewControl.swift in Sources */,
+				BBC9C0931BDD3801000BB9F9 /* AppDelegate.swift in Sources */,
+				BBC9C0941BDD3801000BB9F9 /* DUBIConfig.swift in Sources */,
+				BBC9C0851BDD374C000BB9F9 /* SwiftyJSON.swift in Sources */,
+				BBC9C0911BDD3801000BB9F9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
