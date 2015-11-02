@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="In1-tL-m4e">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_main_bg" translatesAutoresizingMaskIntoConstraints="NO" id="ntw-4S-IUF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photoview_image_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="ntw-4S-IUF">
                                 <rect key="frame" x="37" y="161" width="300" height="300"/>
                             </imageView>
                             <view alpha="0.96999999999999997" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-qZ-RLZ">
@@ -96,8 +96,97 @@
             </objects>
             <point key="canvasLocation" x="304.5" y="367.5"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="0Xs-Ne-lte">
+            <objects>
+                <navigationController id="dvL-WK-B5p" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="uhO-mo-7lx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kuK-Vz-6lG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XZ1-78-BG9" kind="relationship" relationship="rootViewController" id="POd-a0-zny"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlN-Y7-Eo5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-648.5" y="-14.5"/>
+        </scene>
+        <!--MainUI View Controller-->
+        <scene sceneID="YCC-7Y-bj8">
+            <objects>
+                <viewController id="XZ1-78-BG9" customClass="MainUIViewController" customModule="DUBI_FM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sgx-vl-p7C"/>
+                        <viewControllerLayoutGuide type="bottom" id="f9n-7M-ish"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aOZ-bm-v8S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photoview_image_default_white" translatesAutoresizingMaskIntoConstraints="NO" id="IIY-Sg-3JO">
+                                <rect key="frame" x="25" y="316" width="324" height="70"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zL4-Km-gkW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-Rq-tlt">
+                                <rect key="frame" x="0.0" y="106" width="375" height="512"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BOJ-K9-swN">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="mIY-5W-1h6">
+                            <color key="tintColor" red="0.66666666669999997" green="0.19070435291403762" blue="0.12449112372193991" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="9uO-b4-4TS">
+                            <rect key="frame" x="61.5" y="5.5" width="252" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" fixedFrame="YES" placeholder="搜索音乐" translatesAutoresizingMaskIntoConstraints="NO" id="jXG-g9-hUz">
+                                    <rect key="frame" x="13" y="-6" width="220" height="44"/>
+                                    <offsetWrapper key="searchTextPositionAdjustment" horizontal="14" vertical="0.0"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="7Yk-nd-boY"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pageScrollView" destination="aYg-Rq-tlt" id="JPJ-n0-5PI"/>
+                        <outlet property="smallScrollView" destination="zL4-Km-gkW" id="emL-mS-jAW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hj-OH-7mR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-165.5" y="-14.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IFE-ou-2L1">
+            <objects>
+                <tabBarController id="In1-tL-m4e" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3ck-7b-tLb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dvL-WK-B5p" kind="relationship" relationship="viewControllers" id="qVN-xx-Soc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dr4-2P-ZDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1175.5" y="453.5"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="icon_main_bg" width="200" height="200"/>
+        <image name="photoview_image_default_white" width="320" height="70"/>
     </resources>
 </document>
