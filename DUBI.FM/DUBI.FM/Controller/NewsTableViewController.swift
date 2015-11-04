@@ -9,6 +9,8 @@
 import UIKit
 
 class NewsTableViewController: UITableViewController {
+    
+    var index=0;
 
     override func viewDidLoad() {
         super.viewDidLoad()

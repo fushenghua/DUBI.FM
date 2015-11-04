@@ -10,18 +10,17 @@ import UIKit
 
 class TitleLabel: UILabel {
     
-    var sacle:CGFloat{
+    var sacle:CGFloat?;
+    var sacleValue:CGFloat{
         get {
-        
-            return sacle;
+            return self.sacle!;
         }
         
-        set(newCenter){
-            sacle=newCenter;
-            self.textColor=UIColor.init(red: sacle, green: 0.0, blue: 0.0, alpha: 1);
+        set{
+            self.sacle=newValue;
+            self.textColor=UIColor.init(red: sacleValue, green: 0.0, blue: 0.0, alpha: 1);
             var minScale:CGFloat=0.7;
-            var tminScale=CGFloat(1-minScale);
-            var trueScale=minScale +  tminScale * sacle;
+            var trueScale=minScale +  CGFloat(1-minScale) * sacleValue;
             self.transform=CGAffineTransformMakeScale(trueScale, trueScale);
         }
         

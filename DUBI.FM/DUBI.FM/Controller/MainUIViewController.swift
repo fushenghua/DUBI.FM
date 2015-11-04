@@ -53,7 +53,10 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
         vc.view.frame=self.pageScrollView.bounds;
         self.pageScrollView.addSubview(vc.view);
         
-        var lable=self.smallScrollView.subviews.first;
+        var lable:TitleLabel=self.smallScrollView.subviews.first as! TitleLabel;
+        lable.sacleValue=1.0;
+        self.pageScrollView.showsHorizontalScrollIndicator=false;
+        
         
         
     }
@@ -62,9 +65,9 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
     
     
     func addController(){
-        for(var i=0;i<self.arrayLists.count;i++){
+        for(var i=0;i<8;i++){
             
-            let vc1:NewsTableViewController=NewsTableViewController();
+            var vc1 = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("news");
             vc1.title=self.arrayLists[i]["title"] as! String;
             self.addChildViewController(vc1);
         }
@@ -80,7 +83,7 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
             var lblY:CGFloat=0.0;
             var lblX:CGFloat=CGFloat(CGFloat(i) * lblW);
             
-            let lbl1=UILabel();
+            let lbl1=TitleLabel();
             let vc:UIViewController=self.childViewControllers[i];
             
             lbl1.text=vc.title;
@@ -111,7 +114,7 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
         //滚动标题栏
         var titileLable=self.smallScrollView.subviews[index] as! TitleLabel;
         var offsetX=titileLable.center.x-self.smallScrollView.frame.size.width * 0.5;
-        var offsetMax=self.smallScrollView.contentSize.width - self.smallScrollView.frame.width;
+        var offsetMax=self.smallScrollView.contentSize.width - self.smallScrollView.frame.size.width;
         
         if(offsetX<0){
             offsetX=0;
@@ -124,6 +127,23 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
         
         //添加控制器
         let newsVc:NewsTableViewController=self.childViewControllers[index] as! NewsTableViewController;
+        newsVc.index=index;
+        
+//        for indexVc in self.smallScrollView.subviews {
+//            var vc:NewsTableViewController=indexVc as! NewsTableViewController;
+//            if (vc.index != index){
+//                let titleLable=self.smallScrollView.subviews[vc.index];
+//                titileLable.sacleValue=0.0;
+//            }
+//        }
+        
+        
+        for(var i=0;i<self.smallScrollView.subviews.count;i++){
+            if(i != index){
+                let titleLable=self.smallScrollView.subviews[i];
+                titileLable.sacleValue=0.0;
+            }
+        }
         
         if (newsVc.view.subviews.count == 0){
             return;
@@ -143,15 +163,20 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
         let leftIndex=Int(value);
         let rightIndex=value+1;
         
-        let scaleRight=CGFloat(value) - CGFloat(leftIndex);
+        var scaleRight=CGFloat(value) - CGFloat(leftIndex);
         let scaleLeft=1-scaleRight;
         let labelLeft:TitleLabel=self.smallScrollView.subviews[leftIndex] as! TitleLabel;
         labelLeft.sacle=scaleLeft;
         
         
         if(Int(rightIndex)<self.smallScrollView.subviews.count){
-            let labeRight=self.smallScrollView.subviews
-        
+            let labeRight:TitleLabel=self.smallScrollView.subviews[Int(rightIndex)] as! TitleLabel;
+//            if(scaleRight<1){
+//                scaleRight=0;
+//            }else{
+//                scaleRight=1;
+//            }
+            labeRight.sacleValue=scaleRight;
         }
         
     }
