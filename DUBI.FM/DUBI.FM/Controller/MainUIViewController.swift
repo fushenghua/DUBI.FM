@@ -67,10 +67,13 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
     func addController(){
         for(var i=0;i<8;i++){
             
-            var vc1 = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("news");
+            var vc1:NewsTableViewController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("news") as! NewsTableViewController;
             vc1.title=self.arrayLists[i]["title"] as! String;
+            vc1.urlString=self.arrayLists[i]["urlString"] as! String;
             self.addChildViewController(vc1);
         }
+        
+        print("size:\(self.childViewControllers.count)")
         
     
     
@@ -89,14 +92,29 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
             lbl1.text=vc.title;
             lbl1.frame=CGRectMake(lblX , lblY, lblW, lblH);
             lbl1.tag=i;
-            lbl1.font=UIFont(name: "HYQiHei", size: 19);
+            lbl1.font=UIFont(name: "HYQiHei", size: 17);
             lbl1.userInteractionEnabled=true;
             self.smallScrollView.addSubview(lbl1);
-        
+            
+            lbl1.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: "lblClick:"));
         }
         
         self.smallScrollView.contentSize=CGSizeMake(70*8, 0);
     
+    }
+    
+    
+    func lblClick(recognizer:UITapGestureRecognizer){
+        
+        var titlelable:TitleLabel=recognizer.view as! TitleLabel;
+        
+        let offsetX:CGFloat=CGFloat(titlelable.tag)*CGFloat(self.pageScrollView.frame.size.width);
+        var offsetY=self.pageScrollView.contentOffset.y;
+        var offset=CGPointMake(offsetX, offsetY);
+        
+        self.pageScrollView.setContentOffset(offset, animated: true);
+        
+        
     }
     
 
@@ -106,10 +124,10 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
     }
     
     
-    
+    /** 滚动结束后调用（代码导致） */
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         //获取索引
-        let index:Int=(scrollView.contentOffset.x)/self.pageScrollView.frame.size.width as! Int;
+        let index:Int = Int(scrollView.contentOffset.x) / Int(self.pageScrollView.frame.size.width);
         
         //滚动标题栏
         var titileLable=self.smallScrollView.subviews[index] as! TitleLabel;
@@ -137,48 +155,51 @@ class MainUIViewController: UIViewController,UIScrollViewDelegate {
 //            }
 //        }
         
+        let titleLable=self.smallScrollView.subviews[index];
+        titileLable.sacleValue=1.0;
+
+//        for(var i=0;i<self.smallScrollView.subviews.count;i++){
+//            if(i != index){
+//                let titleLable=self.smallScrollView.subviews[i];
+//                titileLable.sacleValue=0.0;
+//            }
+//        }
         
-        for(var i=0;i<self.smallScrollView.subviews.count;i++){
-            if(i != index){
-                let titleLable=self.smallScrollView.subviews[i];
-                titileLable.sacleValue=0.0;
-            }
-        }
-        
-        if (newsVc.view.subviews.count == 0){
-            return;
-        }
+//        if (newsVc.view.superview==nil){
+//            return;
+//        }
         
         
         newsVc.view.frame=scrollView.bounds;
         self.pageScrollView.addSubview(newsVc.view);
         
-        print("offset:\(offset)")
+        print("offset:\(offset) index :\(index)")
         
     }
     
+    //正在滚动
     func scrollViewDidScroll(scrollView: UIScrollView) {
         //取出绝对值，避免左边往右拉时形变超过1
         let value=abs(scrollView.contentOffset.x / scrollView.frame.size.width);
         let leftIndex=Int(value);
-        let rightIndex=value+1;
+        let rightIndex=leftIndex+1;
         
         var scaleRight=CGFloat(value) - CGFloat(leftIndex);
         let scaleLeft=1-scaleRight;
         let labelLeft:TitleLabel=self.smallScrollView.subviews[leftIndex] as! TitleLabel;
-        labelLeft.sacle=scaleLeft;
+        labelLeft.sacleValue=scaleLeft;
         
-        
+          // 考虑到最后一个板块，如果右边已经没有板块了 就不在下面赋值scale了
         if(Int(rightIndex)<self.smallScrollView.subviews.count){
             let labeRight:TitleLabel=self.smallScrollView.subviews[Int(rightIndex)] as! TitleLabel;
-//            if(scaleRight<1){
-//                scaleRight=0;
-//            }else{
-//                scaleRight=1;
-//            }
             labeRight.sacleValue=scaleRight;
         }
         
+    }
+    
+    //滚动结束
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.scrollViewDidEndScrollingAnimation(scrollView);
     }
     
     

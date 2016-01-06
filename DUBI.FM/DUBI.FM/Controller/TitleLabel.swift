@@ -18,9 +18,9 @@ class TitleLabel: UILabel {
         
         set{
             self.sacle=newValue;
-            self.textColor=UIColor.init(red: sacleValue, green: 0.0, blue: 0.0, alpha: 1);
-            var minScale:CGFloat=0.7;
-            var trueScale=minScale +  CGFloat(1-minScale) * sacleValue;
+            self.textColor=UIColor.init(red: newValue, green: 0.0, blue: 0.0, alpha: 1);
+            var minScale:CGFloat=0.9;
+            var trueScale=minScale +  CGFloat(1-minScale) * newValue;
             self.transform=CGAffineTransformMakeScale(trueScale, trueScale);
         }
         
@@ -38,7 +38,7 @@ class TitleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame);
         self.textAlignment=NSTextAlignment.Center;
-        self.font=UIFont.systemFontOfSize(18);
+        self.font=UIFont.systemFontOfSize(17);
         self.sacle=0.0;
     }
 

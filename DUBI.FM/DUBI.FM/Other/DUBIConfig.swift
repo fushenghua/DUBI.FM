@@ -18,3 +18,8 @@ let get_channels="http://www.douban.com/j/app/radio/channels";
 /// get_people
 let get_people="http://www.douban.com/j/app/radio/people";
 
+//let get_
+
+//BaseURL
+let baseURL="http://c.m.163.com/";
+

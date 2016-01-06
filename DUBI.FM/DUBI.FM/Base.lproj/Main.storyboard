@@ -4,16 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--News Table View Controller-->
+        <!--滚动页面-->
         <scene sceneID="L90-EC-bxO">
             <objects>
-                <tableViewController storyboardIdentifier="news" id="0V8-vo-eJS" customClass="NewsTableViewController" customModule="DUBI_FM" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="news" id="0V8-vo-eJS" userLabel="滚动页面" customClass="NewsTableViewController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8jX-m5-ngG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Rc2-dZ-oqc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="80" id="Rc2-dZ-oqc" customClass="NewsCell" customModule="NewsProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rc2-dZ-oqc" id="bvk-Pb-fWN">
@@ -24,11 +24,95 @@
                                             <rect key="frame" x="8" y="8" width="80" height="60"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSA-4w-tVx">
-                                            <rect key="frame" x="96" y="8" width="39" height="9"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <rect key="frame" x="96" y="8" width="271" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="ErX-3o-kMl">
+                                            <rect key="frame" x="96" y="33" width="261" height="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9Q-9N-EMH">
+                                            <rect key="frame" x="-8" y="76" width="375" height="1"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="night_cola_bubble_gray" translatesAutoresizingMaskIntoConstraints="NO" id="qYJ-Gy-NAe">
+                                            <rect key="frame" x="318" y="59" width="54" height="15"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHe-Li-QhV">
+                                            <rect key="frame" x="326" y="62" width="39" height="9"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgIcon" destination="jnd-St-fTc" id="GlI-Wr-ym0"/>
+                                    <outlet property="lblReply" destination="cHe-Li-QhV" id="X2L-JM-TP3"/>
+                                    <outlet property="lblSubtitle" destination="ErX-3o-kMl" id="YUg-V1-ZRH"/>
+                                    <outlet property="lblTitle" destination="GSA-4w-tVx" id="GlE-V8-HXz"/>
+                                    <segue destination="q09-Ml-l2H" kind="show" id="AZ0-WO-Ywt"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesCell" rowHeight="130" id="uUt-tL-Lsa">
+                                <rect key="frame" x="0.0" y="108" width="375" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uUt-tL-Lsa" id="J84-f5-vbq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js7-3k-fVC">
+                                            <rect key="frame" x="-8" y="76" width="375" height="1"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwx-I6-Q05">
+                                            <rect key="frame" x="8" y="8" width="51" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dyu-hY-DMy">
+                                            <rect key="frame" x="8" y="33" width="113" height="80"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-vX-NIH">
+                                            <rect key="frame" x="131" y="33" width="113" height="80"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ne3-zV-ev3">
+                                            <rect key="frame" x="254" y="33" width="113" height="80"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BigImageCell" rowHeight="130" id="88p-qw-FBv">
+                                <rect key="frame" x="0.0" y="238" width="375" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88p-qw-FBv" id="B7B-hO-61L">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86T-go-FGK">
+                                            <rect key="frame" x="8" y="35" width="113" height="80"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEb-yK-3c0">
+                                            <rect key="frame" x="8" y="8" width="51" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhx-lC-zYj">
+                                            <rect key="frame" x="0.0" y="120" width="375" height="1"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALE-la-0vz">
+                                            <rect key="frame" x="131" y="35" width="113" height="80"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHN-so-dW7">
+                                            <rect key="frame" x="254" y="35" width="113" height="80"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -44,10 +128,61 @@
             </objects>
             <point key="canvasLocation" x="368.5" y="-14.5"/>
         </scene>
+        <!--新闻详情-->
+        <scene sceneID="GSk-E1-VK4">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="q09-Ml-l2H" customClass="NewsDetailController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XTW-3v-MZV"/>
+                        <viewControllerLayoutGuide type="bottom" id="J4l-HQ-cFl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sc4-UI-5zV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPu-vF-VBu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fG6-cu-E0T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-wg-fG7" userLabel="back btn">
+                                        <rect key="frame" x="8" y="12" width="44" height="35"/>
+                                        <state key="normal" backgroundImage="night_icon_back"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="q09-Ml-l2H" eventType="touchUpInside" id="lvh-dN-Ujx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-ne-Zfd">
+                                        <rect key="frame" x="295" y="19" width="80" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="1.2万跟帖" backgroundImage="contentview_commentbacky"/>
+                                    </button>
+                                    <view alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHm-Oc-1wN">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="新闻详情" id="OH2-3J-9xu"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="newsWebView" destination="zPu-vF-VBu" id="5fV-RK-Fdk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SqC-Xc-1bO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880.5" y="-14.5"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="DUBI_FM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -62,7 +197,7 @@
                             <view alpha="0.96999999999999997" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9x-qZ-RLZ">
                                 <rect key="frame" x="37" y="341" width="300" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUBI.FM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFY-AG-aKX">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NewsProject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFY-AG-aKX">
                                         <rect key="frame" x="100" y="0.0" width="100" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.2952967172" green="0.2952967172" blue="0.2952967172" alpha="1" colorSpace="calibratedRGB"/>
@@ -113,7 +248,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUBI.FM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWT-Wh-6iF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NewsProject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWT-Wh-6iF">
                                 <rect key="frame" x="128" y="70" width="118" height="21"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="21"/>
                                 <color key="textColor" red="0.2952967172" green="0.2952967172" blue="0.2952967172" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,7 +274,7 @@
         <!--Item-->
         <scene sceneID="0Xs-Ne-lte">
             <objects>
-                <navigationController id="dvL-WK-B5p" sceneMemberID="viewController">
+                <navigationController id="dvL-WK-B5p" customClass="NavController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="uhO-mo-7lx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kuK-Vz-6lG">
@@ -155,10 +290,10 @@
             </objects>
             <point key="canvasLocation" x="-648.5" y="-14.5"/>
         </scene>
-        <!--MainUI View Controller-->
+        <!--首页-->
         <scene sceneID="YCC-7Y-bj8">
             <objects>
-                <viewController id="XZ1-78-BG9" customClass="MainUIViewController" customModule="DUBI_FM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="首页" id="XZ1-78-BG9" customClass="MainUIViewController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sgx-vl-p7C"/>
                         <viewControllerLayoutGuide type="bottom" id="f9n-7M-ish"/>
@@ -184,12 +319,13 @@
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="mIY-5W-1h6">
                             <color key="tintColor" red="0.66666666669999997" green="0.19070435291403762" blue="0.12449112372193991" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <view key="titleView" contentMode="scaleToFill" id="9uO-b4-4TS">
+                        <view key="titleView" alpha="0.0" contentMode="scaleToFill" id="9uO-b4-4TS">
                             <rect key="frame" x="61.5" y="5.5" width="252" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <searchBar contentMode="redraw" fixedFrame="YES" placeholder="搜索音乐" translatesAutoresizingMaskIntoConstraints="NO" id="jXG-g9-hUz">
                                     <rect key="frame" x="13" y="-6" width="220" height="44"/>
+                                    <color key="barTintColor" red="0.98039215690000003" green="0.1058823529" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <offsetWrapper key="searchTextPositionAdjustment" horizontal="14" vertical="0.0"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
@@ -208,10 +344,10 @@
             </objects>
             <point key="canvasLocation" x="-165.5" y="-14.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--主页-->
         <scene sceneID="IFE-ou-2L1">
             <objects>
-                <tabBarController id="In1-tL-m4e" sceneMemberID="viewController">
+                <tabBarController title="主页" id="In1-tL-m4e" customClass="MainTableBarController" customModule="NewsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3ck-7b-tLb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -228,6 +364,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="contentview_commentbacky" width="59" height="88"/>
+        <image name="night_cola_bubble_gray" width="15" height="15"/>
+        <image name="night_icon_back" width="54" height="44"/>
         <image name="photoview_image_default_white" width="320" height="70"/>
     </resources>
 </document>
